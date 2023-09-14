@@ -1,0 +1,139 @@
+<odoo>
+    <!-- This is  form View-->
+    <record model="ir.ui.view" id="res_staff_form_view_id">
+        <field name="name">res.staff.form.view.id</field>
+        <field name="model">res.staff</field>
+        <field name="arch" type="xml">
+            <form string="Staff Form">
+                <sheet>
+                    <!-- For show label of form we create a group-->
+                    <group>
+                        <group>
+                            <field name="name"/>
+                            <field name="age"/>
+                            <field name="gender"/>
+                        </group>
+                        <group>
+                            <field name="dob"/>
+                            <field name="mobile"/>
+                            <field name="email"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    <!-- This is  Tree View (List View)-->
+    <record model="ir.ui.view" id="res_staff_tree_view_id">
+        <field name="name">res.staff.tree.view.id</field>
+        <field name="model">res.staff</field>
+        <field name="arch" type="xml">
+            <tree string="Staff Tree">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="dob"/>
+                <field name="mobile"/>
+                <field name="email"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- This is  Kanban View -->
+    <record id="res_staff_kanban_view_id" model="ir.ui.view">
+        <field name="name">res.staff.kanban.view.id</field>
+        <field name="model">res.staff</field>
+        <field name="arch" type="xml">
+            <kanban class="o_res_restaurant_kanban">
+                <field name="name"/>     <!-- Include field entry which u call in kanban box -->
+                <field name="mobile"/>
+                <field name="email"/>
+                <templates>
+                    <t t-name="kanban-box">
+                        <div t-attf-class="oe_kanban_global_click">
+                            <div class="oe_kanban_details">
+                                <strong class="o_kanban_record_title">
+                                    <field name="name"/>
+                                </strong>
+                                <div t-if="record.mobile.value">
+                                    <t t-esc="record.mobile.value"/>
+                                </div>
+                                <div t-if="record.email.value">
+                                    <t t-esc="record.email.value"/>
+                                </div>
+                            </div>
+                        </div>
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <!-- This is  Calendra View (List View)-->
+    <record id="res_staff_calendar_view_id" model="ir.ui.view">
+        <field name="name">res.staff.calendar.view.id</field>
+        <field name="model">res.staff</field>
+        <field eval="2" name="priority"/>
+        <field name="arch" type="xml">
+            <calendar date_start="dob" string="Tasks" mode="month" color="name" event_limit="5"
+                      hide_time="true" js_class="project_calendar" event_open_popup="true" quick_add="false">
+                <field name="name"/>
+                <field name="age"/>
+                <field name="gender"/>
+                <field name="dob"/>
+                <field name="mobile"/>
+                <field name="email"/>
+            </calendar>
+        </field>
+    </record>
+     <!-- This is  Pivot View-->
+
+    <record id="res_staff_pivot_view" model="ir.ui.view">
+        <field name="name">res.staff.pivot.view</field>
+        <field name="model">res.staff</field>
+        <field name="arch" type="xml">
+            <pivot string="Pivot View">
+                <field name="name" type="row"/>
+                <field name="age" type="row"/>
+            </pivot>
+        </field>
+    </record>
+
+    <!-- This is  Graph View-->
+
+    <record model="ir.ui.view" id="res_staff_graph_view">
+   	<field name="name">res.staff.graph.view</field>
+   	<field name="model">res.staff</field>
+   	<field name="type">graph</field>
+   	<field name="arch" type="xml">
+     		<graph string="Graph View" type="bar">   <!--  type can be bar/line/pie-->
+           		<field name="name" group="True"/>
+           		<field name="age" operator="*"/>
+       		</graph>
+   	</field>
+</record>
+
+    <!-- This is  for  search-->
+    <record id="res_staff_search_view_id" model="ir.ui.view">
+        <field name="name">res.staff.search.view.id</field>
+        <field name="model">res.staff</field>
+        <field name="arch" type="xml">
+            <search string="Search destination">
+                <field name="name"/>
+                <field name="age"/>
+            </search>
+        </field>
+    </record>
+
+    <!-- This is  For Action (Here you can add all type of view)-->
+    <record model="ir.actions.act_window" id="res_staff_action_id">
+        <field name="name">Staff (Our Team)</field>
+        <field name="res_model">res.staff</field>
+        <field name="view_mode">kanban,tree,form,calendar,pivot,graph</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_empty_folder">
+                There is no Record added Yet
+            </p>
+        </field>
+    </record>
+</odoo>
