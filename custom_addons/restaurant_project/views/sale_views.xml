@@ -36,6 +36,12 @@
             <!--            <field name="payment_term_id" position="attributes">-->
             <!--                <attribute name="required">1</attribute>-->
             <!--            </field>-->
+
+            <!--  NonEditable field(Quotation Date)-->
+
+                        <field name="date_order" position="attributes">
+                            <attribute name="readonly">1</attribute>
+                        </field>
         </field>
     </record>
     <!--    This is Inherit Tree Views-->
