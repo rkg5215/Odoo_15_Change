@@ -1,0 +1,52 @@
+<odoo>
+    <!--    This is Inherit form Views-->
+    <record id="view_order_form_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_order_form"/>
+        <field name="arch" type="xml">
+            <!--            Add a new field -->
+            <field name="partner_id" position="after">
+                <field name="sale_new_field"/>
+            </field>
+            <!--            OR -->
+            <!--            <xpath expr="//field[@name='partner_id']" position="after">-->
+            <!--                <field name="sale_new_field"/>-->
+            <!--            </xpath>-->
+
+            <!--            Hide/Remove the existing Field(Hiding Customer) M1-->
+
+            <!--            <xpath expr="//field[@name='partner_id']" position="attributes">-->
+            <!--                <attribute name="invisible">1</attribute>-->
+            <!--            </xpath>-->
+            <!--            Hide/Remove the existing Field(Hiding Customer) M2-->
+
+            <!--            <field name="partner_id" position="attributes">-->
+            <!--                <attribute name="invisible">1</attribute>-->
+            <!--            </field>-->
+
+            <!--  Customer Rename to vendor with existing Field Properties(Change Customer to vendor)-->
+
+            <!--            <field name="partner_id" position="attributes">-->
+            <!--                <attribute name="string">Vendor</attribute>-->
+            <!--            </field>-->
+
+            <!--  Change the properties of Exiting Field (Now payment term is required field)-->
+
+            <!--            <field name="payment_term_id" position="attributes">-->
+            <!--                <attribute name="required">1</attribute>-->
+            <!--            </field>-->
+        </field>
+    </record>
+    <!--    This is Inherit Tree Views-->
+    <record id="view_order_tree_inherit" model="ir.ui.view">
+        <field name="name">sale.order.inherit.tree</field>
+        <field name="model">sale.order</field>
+        <field name="inherit_id" ref="sale.view_quotation_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_id']" position="after">
+                <field name="sale_new_field"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>

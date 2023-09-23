@@ -12,11 +12,22 @@
                             <field name="name"/>
                             <field name="age"/>
                             <field name="gender"/>
-                        </group>
-                        <group>
-                            <field name="dob"/>
+                             <field name="dob"/>
                             <field name="mobile"/>
                             <field name="email"/>
+<!--                            <field name="salary"/>-->
+<!--                            <field name="salary_type"/>-->
+                        </group>
+                        <group>
+                            <field name="document"/>
+                            <field name="image"/>
+                            <field name="date"/>
+                            <field name="date_time"/>
+                            <field name="true"/>
+<!--                            <field name="staff_id"/>-->
+<!--                            <field name="staff_ids"/>-->
+
+
                         </group>
                     </group>
                 </sheet>

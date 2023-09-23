@@ -14,12 +14,13 @@
     'author': "My Company",
     'website': "http://www.yourcompany.com",
      # any module necessary for this one to work correctly
-    'depends': ['base'],
+    'depends': ['base', 'product', 'sale'],
 
     'data': [
         'security/ir.model.access.csv',
         'views/staff_views.xml',
         'views/menu_views.xml',
+        'views/sale_views.xml',
     ],
     # only loaded in demonstration mode
     'demo': [
